@@ -12,18 +12,25 @@ cd immunedb
 docker-compose up --build
 ```
 
+## Stop the docker-compose after the tests
+```
+docker-compose down
+```
+
 # Structure of project
 ## /src/
 The "src" directory contains base methods, configuration file, json schemas for collection and payloads and enum with
 error message
 ## /tests/
-The "tests" directory contains 2 positive and 1 negative tests.
-These tests have precondition that create collection from json schema: src/schemas/collection_schema.json.
+The "tests" directory contains 2 positive and 1 negative tests.\
+These tests have precondition that create collection from json schema: src/schemas/collection_schema.json.\
+Check that response code is equal to 200, otherwise drop assertion with error message. \
 This collection named "Transaction" and have specified fields: 
 ```
 account_number(unique), account_name, iban, address, amount, type (sending, receiving).
 ```
-After the tests are completed, the Transaction collection is deleted.
+After the tests are completed, the Transaction collection is deleted.\
+Check that response code is equal to 200, otherwise drop assertion with error message
 ### test_0_positive::test_put_transaction
 This test send the document with one transaction into empty collection with random values (used faker lib):
 ```
@@ -60,5 +67,5 @@ This test send the document with one transaction into collection that already ha
 Check that response code is equal to 409, otherwise drop assertion with error message
 
 ## root directory
-The root directory contains requirements for the project, this readme and docker files to build docker image and run 
+The root directory contains requirements for the project, this readme file and docker files to build docker image and run 
 container
