@@ -3,7 +3,7 @@
 ## How to download project
 
 ```
-git clone https://github.com/romanov-rizvan/immundb.git
+git clone https://github.com/romanov-rizvan/immundb_test_assignment.git
 ```
 
 ## How to run tests via docker-compose
