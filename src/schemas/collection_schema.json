@@ -1,0 +1,35 @@
+{
+    "fields": [
+        {
+            "name": "account_number",
+            "type": "INTEGER"
+        },
+        {
+            "name": "account_name",
+            "type": "STRING"
+        },
+        {
+            "name": "iban",
+            "type": "STRING"
+        },
+        {
+            "name": "address",
+            "type": "STRING"
+        },
+        {
+            "name": "amount",
+            "type": "INTEGER"
+        },
+        {
+            "name": "type",
+            "type": "STRING"
+        }
+    ],
+    "idFieldName": "_id",
+    "indexes": [
+        {
+            "fields": ["account_number"],
+            "isUnique": true
+        }
+    ]
+}

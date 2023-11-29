@@ -1,0 +1,8 @@
+{
+    "account_number": 123456,
+    "account_name": "John Doe",
+    "iban": "GB22MWLH34465153677305",
+    "address": "2872 Anita Causeway, Port Jeremyfurt, IL 19585",
+    "amount": 999999,
+    "type": "sending"
+}
