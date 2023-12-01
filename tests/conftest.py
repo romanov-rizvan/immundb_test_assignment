@@ -7,11 +7,15 @@ from src.enums.global_enums import GlobalErrorMessages
 
 @pytest.fixture(scope="session")
 def prepare_collection():
+    if not get_collection(SERVICE_URL, HEADERS, COLLECTION_NAME).status_code == 404:
+        delete_collection(SERVICE_URL, HEADERS, COLLECTION_NAME)
     resp = create_collection(COLLECTION_SCHEMA, SERVICE_URL, HEADERS, COLLECTION_NAME)
     assert resp.status_code == 200, GlobalErrorMessages.WRONG_STATUS_CODE
     yield
     resp = delete_collection(SERVICE_URL, HEADERS, COLLECTION_NAME)
     assert resp.status_code == 200, GlobalErrorMessages.WRONG_STATUS_CODE
+    assert get_collection(SERVICE_URL, HEADERS, COLLECTION_NAME).status_code == 404, (
+        GlobalErrorMessages.WRONG_STATUS_CODE)
 
 
 @pytest.fixture(scope="function")
